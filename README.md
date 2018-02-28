@@ -29,7 +29,7 @@ At this point, if you save index.html and load the page in a browser tab, you'll
 ## Add a tile layer to the initialized map, in the same script container
 ```javascript
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, example by Brian'
+    attribution: '&copy; <a href="http://mapbox.com">Mapbox</a> simple streets; example by Brian'
 }).addTo(map);
 ```
 Note the attribution, which will add itself to the bottom-right attribution on the map. Notice the final funtion, telling it to add itself to the map that's already been initialized. The `addTo()` part is telling the browser to add the tile layer to the variable that is named "map" in the script. If you change the variable's name (some tutorias use "mymap"), the referenced variable in the `addTo()` function will need to be changed too.
@@ -57,7 +57,7 @@ Then, add the following betweem the `)` and `.` in `L.map('map').setView(` so th
 ```javascript
 L.map('map').setMaxBounds(bounds).setView([42.732224, -84.478351], 17);
 ```
-## Add Marker
+## Add Marker with popup content
 Create a marker with a popup by adding this new code inside the same script container, below everything else.
 ```javascript
 var popupImg = "https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg",
