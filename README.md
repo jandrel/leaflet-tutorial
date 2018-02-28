@@ -62,7 +62,7 @@ Create a marker with a popup by adding this new code inside the same script cont
 var popupImg = "https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg",
     popupTitle = "LEADR",
     popupLoc = "Old Horticulture",
-    content = "<img src=" + popupImg + " style='float:left;width:200px'padding-right:10px'><strong>" + popupTitle + "</strong><br>" + popupLoc + "<div style='clear:both'></div>",
+    content = "<img src=" + popupImg + " style='float:left;height:150px;padding-right:10px'><strong>" + popupTitle + "</strong><br>" + popupLoc + "<div style='clear:both'></div>",
     marker = L.marker([42.732217, -84.478339]).addTo(map);
     marker.bindPopup(content, {minWidth: 400, autoPanPadding: [5,5], closeButton: true});
 ```
