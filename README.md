@@ -66,3 +66,42 @@ var popupImg = "https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg
     marker = L.marker([42.732217, -84.478339]).addTo(map);
     marker.bindPopup(content, {minWidth: 400, autoPanPadding: [5,5], closeButton: true});
 ```
+## Use geoJSON data instead
+Replace the previous code with the following
+```javascript
+var pins = L.geoJSON(geoJSON).addTo(map);
+var geoJSON = [
+    {
+	    type: 'Feature',
+		  geometry: {
+		    type: 'Point',
+		    coordinates: [42.732217, -84.478339]
+		  },
+		  properties: {
+		    title: 'LEADR',
+			  building: 'Old Horticulture',
+			  url: 'https://leadr.msu.edu',					
+			  image: 'https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg',
+			}
+	  },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [42.729234, -84.473638]
+      }
+      properties: {
+        title: 'Department of Anthropology',
+        building: 'Baker Hall',
+        url: 'https://anthropology.msu.edu',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/MSU_Baker_Hall.jpg',
+      }
+  ];
+pins.on('layeradd', function(e) {
+  var marker = e.layer,
+      feature = marker.feature,
+      content = "<img src=" + feature.properties.image + " style='float:left;width:200px'padding-right:10px'><strong><a title=" + feature.properties.title + " href=" + feature.properties.url + ">" + feature.properties.title + "</a></strong><br>" + feature.properties.building + "<div style='clear:both'></div>";
+  marker.bindPopup(content, {minWidth: 400, autoPanPadding: [5,5], closeButton: true});
+});
+pins.addData(geoJSON);
+```
