@@ -22,7 +22,7 @@ Files for use in LEADR tutorial. The [Leaflet JS library can be found here](http
 ```
 ## Add the function calling the map inside the new script
 ```javascript
-var map = L.map('map-here').setView([42.7322281,-84.4870938], 17);
+var map = L.map('map-here').setView([42.731105, -84.475239], 17);
 ```
 At this point, if you save index.html and load the page in a browser tab, you'll see a map with no tiles. In this code, the browser will use the L.map function to create a map in the map variable, which is tied to the map-here ID in the html code. The view is set to center on that latitude and longitude, and the view is set to the 17th level (higher level numbers are closer in on the map).
 ## Add a tile layer to the initialized map, in the same script container
@@ -54,7 +54,7 @@ var bounds = L.latLngBounds(northwest, southeast);
 ```
 Then, add the following betweem the `)` and `.` in `L.map('map').setView(` so the value now looks like this:
 ```javascript
-L.map('map').setMaxBounds(bounds).setView([42.732224, -84.478351], 17);
+L.map('map').setMaxBounds(bounds).setView([42.731105, -84.475239], 17);
 ```
 ## Add Marker with popup content
 Create a marker with a popup by adding this new code inside the same script container, below everything else.
@@ -69,39 +69,41 @@ var popupImg = "https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg
 ## Use geoJSON data instead
 Replace the previous code with the following
 ```javascript
-var pins = L.geoJSON(geoJSON).addTo(map);
+var pins = L.geoJSON().addTo(map);
 var geoJSON = [
-    {
-	    type: 'Feature',
-		  geometry: {
-		    type: 'Point',
-		    coordinates: [42.732217, -84.478339]
-		  },
-		  properties: {
-		    title: 'LEADR',
-			  building: 'Old Horticulture',
-			  url: 'https://leadr.msu.edu',					
-			  image: 'https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg',
-			}
-	  },
+  {
+    type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-84.478339, 42.732217]
+      },
+      properties: {
+        title: 'LEADR',
+        building: 'Old Horticulture',
+        url: 'http://leadr.msu.edu',					
+        image: 'https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg',
+      }
+    },
     {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [42.729234, -84.473638]
-      }
+        coordinates: [-84.473638, 42.729234]
+      },
       properties: {
         title: 'Department of Anthropology',
         building: 'Baker Hall',
-        url: 'https://anthropology.msu.edu',
+        url: 'http://anthropology.msu.edu',
         image: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/MSU_Baker_Hall.jpg',
       }
-  ];
+    }
+];
 pins.on('layeradd', function(e) {
   var marker = e.layer,
       feature = marker.feature,
-      content = "<img src=" + feature.properties.image + " style='float:left;width:200px'padding-right:10px'><strong><a title=" + feature.properties.title + " href=" + feature.properties.url + ">" + feature.properties.title + "</a></strong><br>" + feature.properties.building + "<div style='clear:both'></div>";
+      content = "<img src=" + feature.properties.image + " style='float:left;height:150px; padding-right:10px'><strong><a title=" + feature.properties.title + " target='_blank' href=" + feature.properties.url + ">" + feature.properties.title + "</a></strong><br>" + feature.properties.building + "<div style='clear:both'></div>";
   marker.bindPopup(content, {minWidth: 400, autoPanPadding: [5,5], closeButton: true});
 });
 pins.addData(geoJSON);
 ```
+An important point to note about using geoJSON data is that the coordinates in a geoJSON setup are in \[longitude, latitude] format, instead of \[latitude, longitide] (the format used in most instances of using Leaflet, like `setView`.
