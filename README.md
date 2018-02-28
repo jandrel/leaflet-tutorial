@@ -52,7 +52,7 @@ var northwest = L.latLng(42.75, -85);
 var southeast = L.latLng(42.7, -84);
 var bounds = L.latLngBounds(northwest, southeast);
 ```
-Then, add the following betweem the `)` and `.` in `L.map('map').setView(` so the line now looks like this:
+Then, add the following betweem the `)` and `.` in `L.map('map').setView(` so the value now looks like this:
 ```javascript
 L.map('map').setMaxBounds(bounds).setView([42.732224, -84.478351], 17);
 ```
