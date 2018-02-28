@@ -1,8 +1,8 @@
 # leaflet-tutorial
 Files for use in LEADR tutorial. The [Leaflet JS library can be found here](http://leafletjs.com/download.html). Sign up for a [Mapbox account here](https://mapbox.com). Leaflet has a [quick start guide](http://leafletjs.com/examples/quick-start/). Leaflet's more complete [documentation is here](http://leafletjs.com/reference-1.3.0.html).
 ## Fork this repo
-## Set this repo's Pages branch to "master"
-## Edit index.html add a ine below the paragraph
+## Set your forked repo's Pages branch to "master"
+## Edit index.html to add a ine below the paragraph
 ```html
 <div id="map-here" style="height: 400px"></div>
   ```
@@ -10,12 +10,12 @@ Files for use in LEADR tutorial. The [Leaflet JS library can be found here](http
 ```html
 <link rel="stylesheet" type="text/css" href="leaflet/leaflet.css">
 ```
-## Add these scripts to body, just above end of `body`
+## Add these scripts to `body`, just above end of `body`
 ```html
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="leaflet/leaflet.js"></script>
 ```
-## Write new script, just below the ones pasted in (still inside `body`)
+## Write new script, just below the ones just pasted in (still inside `body`)
 ```html
 <script type="text/javascript">
         
