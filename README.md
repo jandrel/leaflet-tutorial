@@ -4,24 +4,23 @@ Files for use in LEADR tutorial. The [Leaflet JS library can be found here](http
 ## Set your forked repo's Pages branch to "master"
 ## Edit index.html to add a ine below the paragraph
 ```html
-<div id="map-here" style="height: 400px"></div>
+<div id="map-here" style="height: 500px"></div>
   ```
 ## Add this stylesheet to head
 ```html
 <link rel="stylesheet" type="text/css" href="leaflet/leaflet.css">
 ```
-## Add these scripts to `body`, just above end of `body`
+## Add this script to `body`, just above end of `body`
 ```html
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="leaflet/leaflet.js"></script>
 ```
-## Write new script, just below the ones just pasted in (still inside `body`)
+## Write new script, just below the one just pasted in (still inside `body`)
 ```html
 <script type="text/javascript">
         
 </script>
 ```
-## Add the function calling the map to the new script
+## Add the function calling the map inside the new script
 ```javascript
 var map = L.map('map-here').setView([42.7322281,-84.4870938], 17);
 ```
